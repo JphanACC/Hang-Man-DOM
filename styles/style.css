@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #a07134;
+}
+a:hover {
+    color: #e2355b;
+}
+.menu-item:hover {
+    background-color: rgb(72, 177, 185);
+}
+
+
+.container {
+    flex-flow: column wrap;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column-3 {
+    flex-basis: auto;
+    flex-grow: 1;
+    max-width: 80%;
+    padding: 15px;
+}
+
+.float-left {
+    width: 20%;
+    float: left;
+    padding: 0px 20px;
+}
+
+.item-center {
+    justify-content: center;
+}
+
+span {
+    padding: 15px;
+}
+

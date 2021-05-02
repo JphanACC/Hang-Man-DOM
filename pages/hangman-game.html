@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    
+    <title>Hang Mang page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row float-left">
+            <nav>
+                <a href="../index.html">
+                    <p class="menu-item">To Index page</p>
+                </a>
+                <a href="./pages/hangman-game.html">
+                    <b><p class="menu-item">To Hang Man page</p></b>
+                </a>
+            </nav>
+        </div>
+
+        <div class="row item-center">
+            <header>
+                <h1>You are at Hang Man page</h1>
+            </header>
+        </div>
+        
+        <div class="row item-center">
+            <!-- Gallow Section -->
+            <div class="column-3">
+                <h2>The Gallow Section</h2>
+                <div class="hangman-sprite">
+                    
+                </div>
+            </div>
+            <!-- Strike Section -->
+            <div class="column-3">
+                <h2>The Strike Section</h2>
+                <h4>(If you guess it wrong)</h4>
+                <div>
+                    Striked Letters: <p id="strikeLetters"></p>
+                </div>
+                
+            </div>
+            <!-- Guessed word Section -->
+            <div class="column-3">
+                <h2>The Guessed Word Section</h2>
+                <div>
+                    <p id="lettersR">Revealed Letters: </p>
+                    
+                    <p id="revealedLetters"></p>
+                </div>
+            </div>
+            <!-- User Input Section -->
+            <div class="column-3">
+                <h2>Type Your Guess here</h2>
+                <div>
+                    <input id="userInput" type="text" max="1" placeholder="Only 1 character allowed">
+                    <input id="submitButton" type="submit" value="Submit">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
+<script src="../script.js" defer></script>
