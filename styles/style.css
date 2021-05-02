@@ -47,3 +47,11 @@ span {
     padding: 15px;
 }
 
+#strikeImage{
+    width: 250px; /* width of container */
+    height: 250px; /* height of container */
+    border: 5px solid black;
+
+    object-fit: none;
+    object-position: 40% 5px;
+}

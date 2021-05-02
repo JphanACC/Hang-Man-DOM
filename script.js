@@ -11,7 +11,7 @@ let strikes = 0; //number of player's penalty (lives)
 let revealedLetters = new Array(word.length); // Each index of revealedLetters will correspond to a character in word, and if revealedLetters[n] is truthy, then word[n] has been correctly guessed.
 // revealedLetters.fill(false);
 
-let strikeLetters = new Array(maxStrikes); //contains letters that players guessed
+let strikeLetters = new Array(); //contains letters that players guessed
 
 //Player press button
 let submitButton = document.getElementById("submitButton")
@@ -21,18 +21,20 @@ if (submitButton) {
         let userInput = document.getElementById("userInput").value;
         let upUserInput = userInput.toUpperCase();
         console.log(upUserInput);
-        
 
-        if (upUserInput.length == 1) {
+        if (strikes != maxStrikes) {
+            if (upUserInput.length == 1) {
 
-            checkInput(upUserInput);
+                checkInput(upUserInput);
 
-        } else if (upUserInput.length > 1) {
-            alert('You entered more than 1 character');  
+            } else if (upUserInput.length > 1) {
+                alert('You entered more than 1 character');  
+            } else {
+                alert('No character. Please enter something.');
+            }
         } else {
-            alert('No character. Please enter something.');
+            alert("You lost. Please refresh page!");
         }
-        
     })
 }
 
@@ -47,50 +49,83 @@ function checkInput(input) {
             // console.log(`correct. Word ${word[index]}. User input: ${input[0]}`);
             // console.log(word[index]);
             
-            revealedLetters.push(input[0]);
-            
-            revealCorrectWords();
+            revealedLetters[index] = input[0];
 
-            return correct = true;
-
+            correct = true;
         } 
 
         
     }
-    if (!correct) {
+    if (correct) {
+        // here
+        revealCorrectWords();
+    } else { // modify this conditional to be an if-else
         // console.log(`Loop ${index}: Word ${word[index]}. User input: ${input[0]}`);
         
-        strikeLetters.push[input[index]];
+        if (strikes < maxStrikes) { // then this should be max strikes as well, right?
+            console.log(strikeLetters);
+            // revealStrikeWords(); // comment out
+            let theBadBad = document.createElement("span");
+            theBadBad.setAttribute("class", "strikeWords");
+            theBadBad.innerHTML = input[0];
+            document.getElementById("strikeDiv").appendChild(theBadBad);
+            // put the check in here == 6
+            // here
+            strikes++; // should happen before check
+            let imageSource = document.getElementById("strikeImage");
+            imageSource.setAttribute("src", `../images/strike-${strikes}.png`)
 
-        strikes++;
+            if (strikes == maxStrikes) { // because we want to check the updated value
+                alert("You lost");
+                const correctAnswer = document.getElementById("correctAnswer");
+                correctAnswer.innerHTML = `BOO BOO! Correct answer is ${word}`;
+            }
+        } 
+        
+         // if == 6
         console.log(`Incorrect Strikes: ${strikes}`);
-
+        
     }
+
+    
 }
 
 function revealCorrectWords() {
 
-    
-    strikeWordsP = document.getElementById("strikeLetters");
+    //empty element
+    document.getElementById("revealedDiv").innerHTML = "";
 
 
     for (let index = 0; index < revealedLetters.length; index++) {
-        console.log(revealedLetters);
         
-        console.log(`revealCorrectWords Function: ${revealedLetters[index]}`);
-        
-        let newLetters = document.createElement("p")
+        let newLetters = document.createElement("span");
+        newLetters.setAttribute("class", "rWords");
 
-        if (revealedLetters !== "") {
-            newLetters.innerHTML(revealedLetters[index]);
+        if (!revealedLetters[index] == "") {
+            newLetters.innerHTML = revealedLetters[index];
+            
         } else {
-            newLetters.innerHTML("__");
+            newLetters.innerHTML = "_";
         }
 
-        document.getElementById("lettersR").append(newLetters);
+        document.getElementById("revealedDiv").appendChild(newLetters);
     }
 }
 
 function revealStrikeWords(input) {
+    document.getElementById("strikeDiv").innerHTML = "";
 
+
+    for (let index = 0; index < strikeLetters.length; index++) {
+        
+        
+        
+        if (!strikeLetters[index]) {
+            let newLetters = document.createElement("span");
+            newLetters.setAttribute("class", "strikeWords");
+            newLetters.innerHTML = strikeLetters[index];
+            document.getElementById("strikeDiv").appendChild(newLetters);
+        }
+
+    }
 }

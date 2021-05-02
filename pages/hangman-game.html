@@ -33,7 +33,7 @@
             <div class="column-3">
                 <h2>The Gallow Section</h2>
                 <div class="hangman-sprite">
-                    
+                    <img id="strikeImage" src="../images/strike-0.png" alt="">
                 </div>
             </div>
             <!-- Strike Section -->
@@ -41,7 +41,9 @@
                 <h2>The Strike Section</h2>
                 <h4>(If you guess it wrong)</h4>
                 <div>
-                    Striked Letters: <p id="strikeLetters"></p>
+                    <p id="lettersS">Strike Letters: </p>
+                    
+                    <div id="strikeDiv"></div>
                 </div>
                 
             </div>
@@ -51,7 +53,8 @@
                 <div>
                     <p id="lettersR">Revealed Letters: </p>
                     
-                    <p id="revealedLetters"></p>
+                    <div id="revealedDiv"></div>
+                    <div id="correctAnswer"></div>
                 </div>
             </div>
             <!-- User Input Section -->
